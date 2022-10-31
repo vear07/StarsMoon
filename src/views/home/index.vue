@@ -2,7 +2,7 @@
 	<div>
 		<div class="hot-recruit center">
 			<h1><span>——</span> 热招职位 <span>——</span></h1>
-			<div class="recruit-list" v-if="recruitList && recruitList.length > 0">
+			<div class="recruit-list" v-if="$hasArray(recruitList)">
 				<div v-for="(recruit, index) in recruitList" class="recruit-item" :style="(index + 1) % 3 == 0 ? 'margin-right: 0;' : ''">
 					<div class="recruit-title">
 						<p>{{recruit.recruitName}}</p>

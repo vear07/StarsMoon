@@ -8,6 +8,11 @@ import router from './router/index.js'
 import store from './store'
 import axios from 'axios'
 
+import dataType from '@/utils/dataType'
+Object.keys(dataType).forEach(key => {
+  Vue.prototype[key] = dataType[key]
+})
+
 Vue.config.productionTip = false
 
 new Vue({
