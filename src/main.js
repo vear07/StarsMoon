@@ -13,6 +13,9 @@ Object.keys(dataType).forEach(key => {
   Vue.prototype[key] = dataType[key]
 })
 
+import messageDialog from '@/utils/messageDialog'
+Vue.use(messageDialog)
+
 Vue.config.productionTip = false
 
 new Vue({
