@@ -2,7 +2,7 @@
 	<div class="layout">
 		<nav-bar></nav-bar>
 
-		<router-view class="theRouter" />
+		<router-view />
 	</div>
 </template>
 
@@ -20,8 +20,6 @@ export default {
 <style lang="scss" scoped>
 .layout {
   min-height: 100vh;
-}
-.theRouter {
-	margin-top: 80px;
+	padding-top: 80px;
 }
 </style>

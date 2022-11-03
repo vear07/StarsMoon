@@ -1,4 +1,12 @@
-.c-scroll {
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3718290 */
+  src: url('//at.alicdn.com/t/c/font_3718290_lt7kiua4slk.woff2?t=1667458765774') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3718290_lt7kiua4slk.woff?t=1667458765774') format('woff'),
+       url('//at.alicdn.com/t/c/font_3718290_lt7kiua4slk.ttf?t=1667458765774') format('truetype');
+}
+
+.sm-scroll {
   overflow: auto;
   /*滚动条整体部分,必须要设置*/
   &::-webkit-scrollbar {
@@ -22,6 +30,78 @@
     height: 0;
     // background-color: #B0AEDA;
   }
+}
+
+// el表单
+.el-form {
+	color: #333;
+}
+.el-input__icon, .el-form-item__content, .el-form-item__label {
+  line-height: 36px;
+}
+.el-form-item {
+	margin-bottom: 0;
+}
+.el-form-item + .el-form-item {
+	margin-top: 20px;
+}
+
+// el复选框
+.el-checkbox__input {
+	width: 20px;
+	height: 20px;
+}
+//外边框的样式
+.el-checkbox__inner {
+	width: 20px;
+	height: 20px;
+	border: none;
+	background: none !important;
+	
+	&::before {
+		font-family: "iconfont";
+		content: "\e63f";
+		font-size: 20px;
+		color: #ccc;
+	}
+
+	&:hover {
+		color: #0acffe;
+	}
+	
+	&::after {
+		width: 20px;
+		height: 20px;
+		border: none;
+		background: none !important;
+		font-family: "iconfont";
+		content: "\e63e";
+		font-size: 20px;
+		color: #0acffe;
+		top: 0;
+		left: 0;
+		transform: rotate(0) scaleY(0);
+	}
+}
+//修改定位以及加载动画
+.el-checkbox__input.is-checked .el-checkbox__inner::after{
+	transform: rotate(0) scaleY(1) !important;
+}
+
+.sm-fc-333 {
+	color: #333;
+}
+.sm-fc-ccc {
+	color: #ccc
+}
+.sm-fc-green {
+	color: #5ff281;
+}
+.sm-fc-red {
+	color: #f25f5f;
+}
+.sm-fc-blue {
+	color: #0acffe;
 }
 
 // messageDialog消息提示框样式

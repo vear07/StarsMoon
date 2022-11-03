@@ -1,4 +1,4 @@
-import messageDialogVue from '@/components/messageDialog/index.vue'
+import messageDialogVue from './index.vue'
 
 const messageDialog = {}
 

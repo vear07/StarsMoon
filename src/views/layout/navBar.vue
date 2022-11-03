@@ -8,41 +8,57 @@
 			<template>
 				<div class="flex flex-row items-center">
 					<div class="navBar_Button gradient_border" @click="openTip">登录</div>
-					<div class="navBar_Button gradient_border ml-10">注册</div>
+					<div class="navBar_Button gradient_border ml-10" @click="signUpOpen">注册</div>
 				</div>
 			</template>
 		</div>
+		
+		<sign-up v-if="showSignUp" :showDialog="showSignUp" @cancelClick="signUpClose"></sign-up>
 	</div>
 </template>
 
 <script>
+import signUp from '@/views/layout/signUp.vue'
 export default {
 	name: 'navBar',
 	
+	components: {
+		signUp
+	},
+	
 	data() {
 		return {
-			showDialog: false
+			showSignUp: false
 		}
 	},
 	
 	methods: {
 		openTip() {
-			this.$messageDialog.openDialog('confirm', {
-				title: '提示',
-				content: '是否登录？',
-				confirmText: '确认',
-				cancelText: '取消'
-			}).then(() => {
-				console.log('确认')
-			}).catch(() => {
-				console.log('取消,shi')
-			})
+			this.showSignUp = true
+			// this.$messageDialog.openDialog('confirm', {
+			// 	title: '提示',
+			// 	content: '是否登录？',
+			// 	confirmText: '确认',
+			// 	cancelText: '取消'
+			// }).then(() => {
+			// 	console.log('确认')
+			// }).catch(() => {
+			// 	console.log('取消,shi')
+			// })
 		},
 		getTip() {
 			setTimeout(() => {
 				return 'tim'
 				console.log('tim')
 			}, 3000)
+		},
+		
+		signUpOpen() {
+			this.showSignUp = true
+		},
+		
+		signUpClose() {
+			this.showSignUp = false
 		}
 	}
 }

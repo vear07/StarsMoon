@@ -10,9 +10,7 @@
 							p-id="5820" fill="white"></path>
 					</svg>
 					<h2 class="messageDialog-title">{{ params.title || '提示' }}</h2>
-					<p class="messageDialog-description">
-						{{ params.content || '提示内容' }}
-					</p>
+					<div class="messageDialog-description" v-html="params.content || '提示内容'"></div>
 					<div class="messageDialog-options">
 						<button class="btn btn-round btn-fill btn-fill-left option confirm"
 							:data-text="params.confirmText || '确定'" @click="confirm"></button>

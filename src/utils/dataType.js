@@ -27,6 +27,10 @@ export default {
     return Object.prototype.toString.call(val) === '[object Math]'
   },
 	
+	// 是否存在字符数据
+	$hasString: function(val) {
+		return Object.prototype.toString.call(val) === '[object String]' && val.trim().length > 0
+	},
 	// 是否存在列表数据
 	$hasArray: function(val) {
 		return Object.prototype.toString.call(val) === '[object Array]' && val.length > 0

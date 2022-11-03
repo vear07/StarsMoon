@@ -8,13 +8,40 @@ import router from './router/index.js'
 import store from './store'
 import axios from 'axios'
 
+import {
+  Radio,
+  Checkbox,
+	Select,
+  DatePicker,
+	Form,
+	FormItem,
+	Table,
+  Loading,
+	Message,
+	Popover
+} from 'element-ui'
+Vue.use(Radio)
+Vue.use(Checkbox)
+Vue.use(Select)
+Vue.use(DatePicker)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Table)
+Vue.use(Loading)
+Vue.use(Popover)
+// message不能使用Vue.use，否则运行时会自动弹出一个空信息弹窗
+Vue.prototype.$message = Message
+
 import dataType from '@/utils/dataType'
 Object.keys(dataType).forEach(key => {
   Vue.prototype[key] = dataType[key]
 })
 
-import messageDialog from '@/utils/messageDialog'
+import messageDialog from '@/components/messageDialog/index'
 Vue.use(messageDialog)
+
+import myInput from '@/components/myInput/index'
+Vue.use(myInput)
 
 Vue.config.productionTip = false
 
