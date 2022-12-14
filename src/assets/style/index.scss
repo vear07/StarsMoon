@@ -87,6 +87,10 @@
 .el-checkbox__input.is-checked .el-checkbox__inner::after{
 	transform: rotate(0) scaleY(1) !important;
 }
+// 加载动画元素模型（使加载动画水平居中）
+.el-loading-spinner .circular {
+  display: inline-block;
+}
 
 .sm-fc-333 {
 	color: #333;

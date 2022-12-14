@@ -12,6 +12,7 @@
 				:model="postForm"
 				label-position="right"
 				label-width="120px"
+				v-loading="isLoading"
 			>
 				<el-form-item>
 					<div slot="label">
@@ -63,6 +64,8 @@
 </template>
 
 <script>
+	import { signUp } from '@/api/index.js';
+	
 	import myDialog from '@/components/myDialog/index.vue'
 	
 	export default {
@@ -88,13 +91,14 @@
 					confirmPassword: '',
 					code: '',
 					isRead: false
-				}
+				},
+				isLoading: false
 			}
 		},
 		
 		methods: {
 			close() {
-				this.$emit('cancelClick')
+				this.$emit('cancelClick', false)
 			},
 			
 			// 阅读协议
@@ -118,6 +122,24 @@
 				if (!this.$hasString(this.postForm.mobile)) {
 					return '请输入手机号'
 				}
+				if (!this.$isMobile(this.postForm.mobile)) {
+					return '手机号格式错误'
+				}
+				if (!this.$hasString(this.postForm.userName)) {
+					return '请输入用户名'
+				}
+				if (!this.$hasString(this.postForm.password)) {
+					return '请输入密码'
+				}
+				if (!this.$hasString(this.postForm.confirmPassword)) {
+					return '请再次输入确认密码'
+				}
+				if (this.postForm.password != this.postForm.confirmPassword) {
+					return '两次密码不一致'
+				}
+				if (!this.postForm.isRead) {
+					return '请勾选协议'
+				}
 			},
 			
 			confirmForm() {
@@ -126,6 +148,23 @@
 					this.$message.warning(tip)
 					return
 				}
+				this.isLoading = true
+				signUp(this.postForm).then(res => {
+					console.log(res, '返回啦')
+					this.isLoading = false
+					if (res.status == 0) {
+						this.$message.warning('当前注册的手机号已存在，请前往登录或重新填写')
+						return
+					}
+					if (res.status == 1) {
+						this.$message.success('注册成功')
+						this.$emit('cancelClick', true)
+					}
+				}).catch(err => {
+					this.$message.warning('注册失败')
+					console.log(err, '错误啦')
+					this.isLoading = false
+				})
 			}
 		}
 	}

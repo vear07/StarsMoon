@@ -38,5 +38,10 @@ export default {
 	// 是否存在对象键值
 	$hasObject: function(val, keyName) {
 		return Object.prototype.toString.call(val) === '[object Object]' && val.hasOwnProperty(keyName)
+	},
+	
+	// 手机号格式校验
+	$isMobile: function(val) {
+		return /^1[3|4|5|6|7|8|9]\d{9}$/.test(val)
 	}
 }

@@ -23,8 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // 后端api路由
 const home = require('./api/home');
+const layout = require('./api/layout');
 
 app.use('/api', home);
+app.use('/api', layout);
 
 // 监听端口
 app.listen(3000);

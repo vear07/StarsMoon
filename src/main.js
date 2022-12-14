@@ -27,8 +27,10 @@ Vue.use(DatePicker)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Table)
-Vue.use(Loading)
 Vue.use(Popover)
+// 加载动画引入
+Vue.use(Loading.directive)
+Vue.prototype.$loading = Loading.service
 // message不能使用Vue.use，否则运行时会自动弹出一个空信息弹窗
 Vue.prototype.$message = Message
 

@@ -2,11 +2,11 @@
 var mysql = require('mysql');
 var db = require('./db');
 
-module.exports = function(sql) {
+module.exports = function(sql, sqlParams = null) {
 	return new Promise((resolve, reject) => {
 		var pool = mysql.createPool(db.mysql);
 		pool.getConnection(function (err, connection) {
-			connection.query(sql, function(err, results, fields) {
+			connection.query(sql, sqlParams, function(err, results, fields) {
 				if (err) {
 					reject(err);
 				} else {
