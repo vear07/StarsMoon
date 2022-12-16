@@ -5,6 +5,7 @@ module.exports = {
 		user: 'root',
 		password: '123456',
 		database: 'starsmoon',
-		port: '3306'
+		port: '3306',
+		multipleStatements: true // 允许node.js执行多条sql语句
 	}
 }
